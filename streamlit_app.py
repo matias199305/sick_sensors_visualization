@@ -146,8 +146,8 @@ def main():
                         
                     with col2:
                         # Show a summary of the metadata
-                        with st.expander("Metadata", expanded=False):
-                                                    st.dataframe(df_meta.mean(axis = 0).to_frame().style.set_properties(**{
+                        with st.expander("Metadata Summary", expanded=True):
+                                                    st.dataframe(df_meta.mean(axis = 0).to_frame(name = "Summary").style.set_properties(**{
                                                         'font-size': '10pt',
                                                         'text-align': 'left'
                                                     }))
