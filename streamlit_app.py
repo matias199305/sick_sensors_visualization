@@ -145,8 +145,15 @@ def main():
                         st.pyplot(fig, use_container_width=True)
                         
                     with col2:
-                        # Show metadata in an expandable section
-                        with st.expander("Metadata", expanded=True):
+                        # Show a summary of the metadata
+                        with st.expander("Metadata", expanded=False):
+                                                    st.dataframe(df_meta.mean(axis = 0).style.set_properties(**{
+                                                        'font-size': '10pt',
+                                                        'text-align': 'left'
+                                                    }))
+
+                        # Show metadata in an expandable section (collapsed by default)
+                        with st.expander("Metadata", expanded=False):
                             st.dataframe(df_meta.style.set_properties(**{
                                 'font-size': '10pt',
                                 'text-align': 'left'
