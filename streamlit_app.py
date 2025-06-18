@@ -62,7 +62,7 @@ def summarise_metrics(df):
 
 def create_plot(df, filename):
     # Create a larger figure with adjusted DPI for better quality
-    fig, ax = plt.subplots(figsize=(16, 10), dpi=120)
+    fig, ax = plt.subplots(figsize=(14, 8), dpi=300)
     
     # Plot settings
     ax.scatter(df['mean_x'], df['mean_y'], 
@@ -81,8 +81,8 @@ def create_plot(df, filename):
     # ax.legend(fontsize=12)
     ax.grid(alpha=0.3)
     #ax.set_title(f"Data from {filename}", fontsize=16, pad=20)
-    ax.set_xlabel("X Coordinate", fontsize=14)
-    ax.set_ylabel("Y Coordinate", fontsize=14)
+    ax.set_xlabel("X Distance (mm)", fontsize=14)
+    ax.set_ylabel("Y Distance (mm)", fontsize=14)
     
     # Adjust tick label sizes
     ax.tick_params(axis='both', which='major', labelsize=12)
