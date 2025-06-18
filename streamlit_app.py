@@ -32,7 +32,7 @@ def load_data(file_path):
             y_row = next(fh).strip().split(";")[2:]   # drop "Y" + empty col
 
             blocks.append({
-                "DateTime": ts,
+                "Date": ts,
                 "Height":          float(h),
                 "Gab":             float(gab),
                 "Angle":           float(ang),
@@ -42,7 +42,7 @@ def load_data(file_path):
             })
 
     # A tidy metadata table (one row per scan)
-    df_meta = pd.DataFrame(blocks).drop(columns=["X", "Y"])
+    df_meta = pd.DataFrame(blocks).drop(columns=["X", "Y"]).assign(Date = lambda x: pd.to_datetime(x['Date']))
 
     df_coordinates = pd.DataFrame()
 
